@@ -2,6 +2,43 @@
 """
 import math
 
+def lookup_bodyguards(grid, center, guards=3):
+    """ takes a list of text strings representing a 'grid'. 
+    Given a 'center' (row, col), returns 'guards' number of adjacent letters.
+
+               
+    e.g. guards=3, center=(3, 3)
+           A
+           B
+           C
+        JKLxDEF
+           G
+           H
+           I
+
+    returns [A, B, C, D, E, F, G, H, I, J, K, L]
+    """
+    # Originally for Python Challenge problem 3
+
+
+def process_text(filename):
+    """ Takes a filename that holds a rectangular block of text.
+    Return a list strings from that block.
+        
+
+
+
+    """
+    # Originally for Python Challenge problem 3
+        
+    # Create a list of lists. Each member list is a line of text.
+    a_list = list()
+    with open(filename, encoding='utf-8') as a_file:
+        for a_line in a_file:
+            a_list.append(a_line.strip())          
+
+    return a_list
+
 def next_collatz_number(n):
     """ The following iterative sequence is defined for the set of positive integers:
     n → n/2 (n is even)
