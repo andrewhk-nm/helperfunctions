@@ -1,5 +1,7 @@
 """ This module contains the helper functions I create to help solve puzzles.
 """
+import math
+
 def next_collatz_number(n):
     """ The following iterative sequence is defined for the set of positive integers:
     n → n/2 (n is even)
@@ -18,9 +20,9 @@ def get_grid_posititions_from_shape(grid, shape, x, y, n=4):
 
     raises IndexError if you try to get a location off of the grid.
     """
-    Hf = HelperFunctions()
+    
     # originally for problem11
-    return [int(grid[here_x][here_y]) for here_x, here_y in Hf.gen_grid_positions((x, y), shape, n)]
+    return [int(grid[here_x][here_y]) for here_x, here_y in gen_grid_positions((x, y), shape, n)]
         
 def prod(factors):
     """ Quick prod function from StackExchange.
@@ -101,9 +103,9 @@ def gen_grid_positions(start, shape, n):
     #"""
     # TDD
     # Originally for problem11
-    Hf = HelperFunctions()
+    
         
-    SHAPE = Hf.EnumGenGridPositionsShapes
+    SHAPE = EnumGenGridPositionsShapes
     if shape == SHAPE.HORIZONTAL:
         d_row_d_col = (0, 1)
     elif shape == SHAPE.DIAGONAL_SE:
@@ -126,11 +128,11 @@ def gen_primes(start=2, stop=None):
 
     yields the next prime int.
     """
-    Hf = HelperFunctions()
+    
     # Originally for problem 10
     # TDD
     for p in range(start, stop):
-        if Hf.isprime(p):
+        if isprime(p):
             yield p
             
 def gen_pythagorean_triplet(min_c=5, max_c=100):
@@ -157,7 +159,7 @@ def prime_factorization_mark2(n):
     key=prime factor
     value=count of occurances of that prime factor
     """
-    Hf = HelperFunctions()
+    
     # Start pulling out prime factors of n
     # e.g.
     # n = 12
@@ -177,7 +179,7 @@ def prime_factorization_mark2(n):
             while True:
                 #input('Loop paused. <ENTER> to continue.')
                 if n % x == 0:
-                    if Hf.isprime(x):
+                    if isprime(x):
                         n /= x
                         try:
                             p[x] += 1
@@ -206,8 +208,8 @@ def prime_factorization(n):
     value=count of occurances of that prime factor
     """
     # Send input to the new method
-    Hf = HelperFunctions()
-    return Hf.prime_factorization_mark2(n)
+    
+    return prime_factorization_mark2(n)
         
 
         
@@ -217,7 +219,7 @@ def isprime(n, treat_1_as_prime=False):
     returns True if n is prime, False if not prime.
     Returns False for all values < 2
     """
-    Hf = HelperFunctions()
+    
     if treat_1_as_prime and n == 1:
         return True
     else:
@@ -225,7 +227,7 @@ def isprime(n, treat_1_as_prime=False):
             return False
     # if the only factors of a number are 1 and itself, it's prime.
     #g_f = gen_factors(n)
-    gen_some_factors = Hf.gen_factors(n)
+    gen_some_factors = gen_factors(n)
     for a in gen_some_factors:
         if a != 1 and a != n:
             # A non-1 or n factor has been found. It is not prime.
@@ -248,8 +250,8 @@ def primes_from_a_set(s, return_composites_too=False):
         discarding the composites. Returns as a tuple (primes, )
         If get_composites_too is True, returns a tuple ({primes}, {composites})
     """
-    Hf = HelperFunctions()
-    primes = {p_f for p_f in s if len(Hf.factors(p_f)) == 2}
+    
+    primes = {p_f for p_f in s if len(factors(p_f)) == 2}
     if return_composites_too:
         composites = s.difference(primes)
         return (primes, composites)
