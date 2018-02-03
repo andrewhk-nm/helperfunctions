@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 This is the unit test module for my Project Euler python solutions.
 """
@@ -5,16 +6,19 @@ This is the unit test module for my Project Euler python solutions.
 import unittest
 from functools import namedtuple
 
-from helperfunctions import problem3_mark2
-from helperfunctions import HelperFunctions
+#from helperfunctions import problem3_mark2
+from helperfunctions import helperfunctions as hf
+
+
+
 
 class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
     """ Collection of Tests focusing on problem11 and the HelperFunctions 
     functions that I may create there.
     """
 
-    Hf = HelperFunctions
-    SHAPE = Hf.Enum_gen_grid_positions_shapes
+    
+    SHAPE = hf.Enum_gen_grid_positions_shapes
 
     known_answers_Enum_gen_grid_positions_shapes_in_order = ['horizontal',
                                                              'diagonal_se',
@@ -23,7 +27,7 @@ class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
                                                             ]
 
     def test_get_grid_posititions_from_shape(self):
-        Hf = HelperFunctions()
+        
         grid_str = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
         49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
         81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -55,10 +59,10 @@ class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
             (Input(self.SHAPE.VERTICAL, 2, 19, 4), [65, 91, 80, 50]),
             ]
         for input_, output in known_answers:
-            self.assertListEqual(output, Hf.get_grid_posititions_from_shape(grid, input_.shape, input_.row, input_.col, input_.n))
+            self.assertListEqual(output, hf.get_grid_posititions_from_shape(grid, input_.shape, input_.row, input_.col, input_.n))
     
     def test_get_grid_posititions_from_shape_exceptions(self):
-        Hf = HelperFunctions()
+        
         grid_str = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
         49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
         81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -88,18 +92,18 @@ class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
             ]
         for input_, output in known_exceptions:
             #self.assertRaises(IndexError, IndexError)
-            self.assertRaises(output, Hf.get_grid_posititions_from_shape, grid, input_.shape, input_.row, input_.col, input_.n)
+            self.assertRaises(output, hf.get_grid_posititions_from_shape, grid, input_.shape, input_.row, input_.col, input_.n)
             
 
 
     def test_Enum_gen_grid_positions_shapes(self):
-        Hf = HelperFunctions()
-        SHAPES = Hf.Enum_gen_grid_positions_shapes()
+        
+        SHAPES = hf.Enum_gen_grid_positions_shapes()
         self.assertListEqual([shape for shape in SHAPES], self.known_answers_Enum_gen_grid_positions_shapes_in_order)
 
 
     def test_gen_grid_positions_known_answers(self):
-        Hf = HelperFunctions()
+        
         known_answers_gen_grid_positions = [
             (((1, 1), self.SHAPE.VERTICAL, 4), [(1, 1), (2, 1), (3, 1), (4, 1)]),
             (((1, 1), self.SHAPE.HORIZONTAL, 4), [(1, 1), (1, 2), (1, 3), (1, 4)]),
@@ -109,7 +113,7 @@ class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
             (((2, 2), self.SHAPE.DIAGONAL_SE, 4), [(2, 2), (3, 3), (4, 4), (5, 5)]),
             ]
         for test, answer in known_answers_gen_grid_positions:
-            ans = Hf.gen_grid_positions(start=test[0], shape=test[1], n=test[2])
+            ans = hf.gen_grid_positions(start=test[0], shape=test[1], n=test[2])
             self.assertListEqual(list(ans), answer)
 
 class Test_PythonProjectEuler_problem10_and_Helper(unittest.TestCase):
@@ -126,17 +130,17 @@ class Test_PythonProjectEuler_problem10_and_Helper(unittest.TestCase):
                                ]
     
     def test_gen_primes_known_answers(self):
-        Hf = HelperFunctions()
+        
         for packed_answer in self.known_answers_gen_primes:
             ans_tuple, ans_list = packed_answer
             start, stop = ans_tuple
-            test_gen = Hf.gen_primes(start, stop)
+            test_gen = hf.gen_primes(start, stop)
             self.assertListEqual(ans_list, list(test_gen))
             
     def test_gen_primes_are_primes(self):
-        Hf = HelperFunctions()
-        primes = Hf.gen_primes(2, 9)
-        self.assertTrue(Hf.isprime(next(primes)))
+        
+        primes = hf.gen_primes(2, 9)
+        self.assertTrue(hf.isprime(next(primes)))
 
 
 
@@ -146,10 +150,10 @@ class Test_PythonProjectEuler_problem9_and_Helper(unittest.TestCase):
     """
     
     def test_gen_pythagorean_triplet(self):
-        # Hf.gen_pythagorean_triplet
+        # hf.gen_pythagorean_triplet
         # does a**2 + b**2 == c**2?
-        Hf = HelperFunctions()
-        pythag = Hf.gen_pythagorean_triplet(min_c=5, max_c=100)
+        
+        pythag = hf.gen_pythagorean_triplet(min_c=5, max_c=100)
         loop_counter = 0
         for r in pythag:
             loop_counter += 1
@@ -197,30 +201,30 @@ class Test_PythonProjectEuler_HelperFunctions(unittest.TestCase):
                             }
 
     def test_isprime_known_answers(self):
-        Hf = HelperFunctions()
+        
         for n, result in self.known_answers_isprime.items():
-            self.assertEqual(Hf.isprime(n), result)
+            self.assertEqual(hf.isprime(n), result)
 
     def test_prime_factorization_returns_dict(self):
-        Hf = HelperFunctions()
-        result = Hf.prime_factorization(2)
+        
+        result = hf.prime_factorization(2)
         self.assertIsInstance(obj=result, cls=dict)
 
     def test_prime_factoriation_known_answers(self):
-        Hf = HelperFunctions()
+        
         for n, result in self.known_answers_prime_factorization.items():
-            self.assertDictEqual(Hf.prime_factorization(n), result)
+            self.assertDictEqual(hf.prime_factorization(n), result)
 
     def test_prime_factorization_12(self):
-        Hf = HelperFunctions()
-        self.assertDictEqual(Hf.prime_factorization(12), {2: 2, 3: 1})
+        
+        self.assertDictEqual(hf.prime_factorization(12), {2: 2, 3: 1})
 
     def test_gen_factors_known_answers(self):
         """ Test for the function 'gen_factors(n)'
         """
-        Hf = HelperFunctions()
+        
         for n, result_list in self.known_answers_gen_factors.items():
-            factor_generator = Hf.gen_factors(n)
+            factor_generator = hf.gen_factors(n)
             for f in result_list:
                 next_factor = next(factor_generator)
                 self.assertEqual(f, next_factor, "'gen_factors' generator did not give expected factor.\nFor n={}, Expected Factor={}, Generated Factor={}".format(n, f, next_factor))
