@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
 """ This module contains the helper functions I create to help solve puzzles.
 """
+from functools import namedtuple
 import math
 
 def lookup_bodyguards(grid, center, guards=3):
