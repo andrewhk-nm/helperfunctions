@@ -22,7 +22,7 @@
   <ItemGroup>
     <Compile Include="helperfunctions.py" />
     <Compile Include="helperfunctions_test.py" />
-    <Compile Include="__init__.py">
+    <Compile Include="test_test.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

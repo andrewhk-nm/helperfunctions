@@ -5,11 +5,14 @@ This is the unit test module for my Project Euler python solutions.
 import unittest
 #from functools import namedtuple
 
+<<<<<<< HEAD
 #import helperfunctions as hf
 
 class Test_test(unittest.TestCase):
     def test_testA(self):
         self.assertEqual(True, True)
+=======
+>>>>>>> c772f9c08ee270e7f94147cd0aa2316ad18ecb61
 
 #class Test_PythonChallenge_test1(unittest.TestCase):
 #    known_answers_gen_char_neighbor = [('U', 'kAeMKENi'),
@@ -17,6 +20,7 @@ class Test_test(unittest.TestCase):
 #                                       ('L', 'ewtKEihr')
 #                                       ]
     
+<<<<<<< HEAD
 #    def test_HelperFunctions_gen_char_neighbor_known_answers(self):
 #        """ Test some known answers of the generator.
 #        """
@@ -69,6 +73,8 @@ class Test_test(unittest.TestCase):
 #            ]
 #        for input_, output in known_answers:
 #            self.assertListEqual(output, hf.get_grid_posititions_from_shape(grid, input_.shape, input_.row, input_.col, input_.n))
+=======
+>>>>>>> c772f9c08ee270e7f94147cd0aa2316ad18ecb61
     
 #    def test_get_grid_posititions_from_shape_exceptions(self):
         
@@ -246,6 +252,7 @@ class Test_test(unittest.TestCase):
 
 
 
+<<<<<<< HEAD
 #class Test_PythonProjectEuler_problem3_mark2_test(unittest.TestCase):
 #    """
 #    Test set for Project Euler problem3_mark2
@@ -289,6 +296,51 @@ class Test_test(unittest.TestCase):
 #    #from PythonProjectEuler import choose_problem  # Replace 'choose_problem' with the actual problem to test
 #    def test_generic_not_implemented(self):
 #        self.fail("Not implemented")
+=======
+##class Test_PythonProjectEuler_problem3_mark2_test(unittest.TestCase):
+##    """
+##    Test set for Project Euler problem3_mark2
+##
+##    Goal for problem3:
+##        The prime factors of 13195 are 5, 7, 13 and 29.
+##        What is the largest prime factor of the number 600851475143 ?
+##
+##    """
+##    
+##    # known_answers dictionary in the form of {number: largest_prime_factor, }
+##    known_answers = {13195: 29, 10: 5}
+##    known_factor_sets = {10: {1, 2, 5}}
+##
+##    def test_p3m2_isprime(self):
+##        self.fail("problem3_mark2 'isprime' test not yet implemented")
+##    
+##    def test_p3m2_isfactor(self):
+##        self.fail("problem3_mark2 'isfactor' test not yet implemented")
+##
+##    def test_p3m2_is_largest_factor(self):
+##        for n in self.known_answers:
+##            self.assertEqual(problem3_mark2(n), self.known_answers[n])
+##
+##    def test_p3m2_factors_returns_a_set(self):
+##        # This function, factors(n), should always return a set of factors given any n.
+##        # This test will check the returned type.
+##        # TODO: what is this test supposed to do?
+##        for n in self.known_factor_sets:
+##            self.assertEqual(problem3_mark2)
+##
+##
+##
+##
+##
+##class Test_PythonProjectEuler_generic_test(unittest.TestCase):
+##    """
+##    Test set for Project Euler problems.
+##    Copy this test class for different problem sets.
+##    """
+##    #from PythonProjectEuler import choose_problem  # Replace 'choose_problem' with the actual problem to test
+##    def test_generic_not_implemented(self):
+##        self.fail("Not implemented")
+>>>>>>> c772f9c08ee270e7f94147cd0aa2316ad18ecb61
 
 if __name__ == '__main__':
     unittest.main()
