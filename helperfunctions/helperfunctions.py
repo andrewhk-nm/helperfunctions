@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """ This module contains the helper functions I create to help solve puzzles.
 """
+import operator
+import functools
 from functools import namedtuple
 import math
 
