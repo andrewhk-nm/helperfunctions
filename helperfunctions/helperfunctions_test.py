@@ -25,11 +25,6 @@ import helperfunctions as hf
 ##            print('test_ans={}'.format(test_ans))
 ##            self.assertEqual((center, neighbors), test_ans)
 
-class Test_testtest(unittest.TestCase):
-    def test_A(self):
-        print(hf.factors(12))
-        self.assertTrue(True)
-        
 class Test_PythonProjectEuler_problem11_and_Helper(unittest.TestCase):
     """ Collection of Tests focusing on problem11 and the HelperFunctions 
     functions that I may create there.
@@ -174,9 +169,9 @@ class Test_PythonProjectEuler_problem9_and_Helper(unittest.TestCase):
         loop_counter = 0
         for r in pythag:
             loop_counter += 1
-            print('Testing triplet: a={}, b={}, c={}'.format(r.a, r.b, r.c))
+            #print('Testing triplet: a={}, b={}, c={}'.format(r.a, r.b, r.c))
             self.assertEqual(r.a ** 2 + r.b ** 2, r.c ** 2)
-        print('{} triplets tested.'.format(loop_counter))
+        #print('{} triplets tested.'.format(loop_counter))
 
 
 
