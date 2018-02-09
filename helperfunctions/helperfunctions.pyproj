@@ -5,8 +5,7 @@
     <ProjectGuid>45286548-d230-4deb-959a-538e4335d299</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>helperfunctions.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\helperfunctions</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>helperfunctions</Name>
